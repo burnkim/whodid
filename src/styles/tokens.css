@@ -1,0 +1,101 @@
+/* whodid — design tokens
+ * Light is the default; [data-theme="dark"] overrides on <html>.
+ * The 5-step heatmap ramp + the sage accent are the only "brand" colors.
+ */
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --surface-2: #f4f0e9;
+  --border: #ece7df;
+  --hairline: #f0ebe3;
+
+  --text: #1f2421;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9aa0a6;
+
+  --accent: #2eb872;
+  --accent-dark: #1f9d63;
+  --accent-soft: #e7f4ec;
+  --accent-contrast: #ffffff;
+
+  --ring-track: #e7e2d9;
+  --flame: #f59e0b;
+  --danger: #dc6b5b;
+  --danger-soft: #fbecea;
+
+  /* heatmap ramp (empty -> full) */
+  --grass-0: #edeae3;
+  --grass-1: #c7e9d4;
+  --grass-2: #8fd6ae;
+  --grass-3: #54c285;
+  --grass-4: #2eb872;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.1);
+  --shadow-sheet: 0 -8px 40px rgba(0, 0, 0, 0.16);
+
+  --backdrop: rgba(20, 20, 20, 0.32);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #14171a;
+  --surface: #1e2227;
+  --surface-2: #262b31;
+  --border: #2c3137;
+  --hairline: #242a30;
+
+  --text: #ececec;
+  --text-secondary: #9aa0a6;
+  --text-tertiary: #6b7280;
+
+  --accent: #2eb872;
+  --accent-dark: #36c47d;
+  --accent-soft: #173027;
+  --accent-contrast: #0f1216;
+
+  --ring-track: #2a2f35;
+  --flame: #f5b342;
+  --danger: #e57d6e;
+  --danger-soft: #2a1f1d;
+
+  --grass-0: #20262b;
+  --grass-1: #1e4d38;
+  --grass-2: #2e7d52;
+  --grass-3: #3fa873;
+  --grass-4: #2eb872;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.5);
+  --shadow-sheet: 0 -8px 40px rgba(0, 0, 0, 0.6);
+
+  --backdrop: rgba(0, 0, 0, 0.55);
+}
+
+:root {
+  /* spacing scale (8px grid) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+
+  --r-card: 16px;
+  --r-btn: 12px;
+  --r-pill: 999px;
+
+  --container: 480px;
+  --tabbar-h: 56px;
+
+  --font:
+    -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard',
+    'Noto Sans KR', 'Malgun Gothic', 'Segoe UI', Roboto, sans-serif;
+
+  --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
