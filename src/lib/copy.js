@@ -1,31 +1,19 @@
 // copy.js — Korean UI copy in one place for tone consistency.
-// Encouragement is ALWAYS warm and guilt-free, even at 0%.
+// Tone: this is a RECORD of what got done, not a streak or a to-do you must
+// clear. Copy stays warm and guilt-free, and never nags about "완료/목표".
 
-// Encouragement line on the Today screen, based on progress + whether any chore exists.
-// hasChores distinguishes "no chores at all" from "none due today".
+// Line under the ring on the Today screen. Frames the tap as "기록"(recording
+// what you did), counting up — not progress toward a goal.
+// hasChores distinguishes "no chores at all" from "none scheduled today".
 export function encouragement({ total, done, hasChores = false }) {
   if (total === 0) {
     return hasChores
-      ? '오늘 예정된 집안일이 없어요. 쉬어가도 좋아요 🌿'
-      : '첫 집안일을 추가하고 시작해 볼까요?'
+      ? '오늘은 기록할 집안일이 없어요. 쉬어가도 좋아요 🌿'
+      : '집안일을 추가하고, 한 것을 체크해 볼까요?'
   }
-  if (done === 0) return '천천히 시작해요. 하나만 해도 좋아요 🌱'
-  const ratio = done / total
-  if (done >= total) return '오늘 할 일을 다 끝냈어요! 정말 멋져요 🎉'
-  if (ratio >= 0.6) return '거의 다 왔어요. 조금만 더!'
-  if (ratio >= 0.3) return '좋아요, 잘하고 있어요 👍'
-  return '시작이 반이에요. 하나씩 해봐요'
-}
-
-// Streak badge text. current=consecutive active days. broken => never shame.
-export function streakText(current) {
-  if (current <= 0) return '괜찮아요, 오늘 다시 시작해요'
-  if (current === 1) return '오늘부터 1일째 🔥'
-  return `${current}일 연속 기록 중 🔥`
-}
-
-export function streakBroken(current) {
-  return current <= 0
+  if (done === 0) return '한 집안일을 탭해서 기록해요 🌱'
+  if (done >= total) return '오늘 한 집안일을 모두 기록했어요 🎉'
+  return `지금까지 ${done}개 기록했어요 👍`
 }
 
 // Day-detail relative label.

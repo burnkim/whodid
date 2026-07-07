@@ -7,13 +7,12 @@ export function ProgressRing({ done, total }) {
   const circumference = 2 * Math.PI * r
   const ratio = total > 0 ? Math.min(done / total, 1) : 0
   const offset = circumference * (1 - ratio)
-  const pct = Math.round(ratio * 100)
 
   return (
     <div
       className="progress-ring"
       role="img"
-      aria-label={`오늘 진행도 ${done}/${total} (${pct}%)`}
+      aria-label={`오늘 ${total}가지 중 ${done}가지 기록`}
     >
       <svg width={size} height={size}>
         <circle
@@ -38,7 +37,7 @@ export function ProgressRing({ done, total }) {
       <div className="progress-ring__center">
         <span className="progress-ring__num tnum">{done}</span>
         <span className="progress-ring__total tnum">/ {total}</span>
-        <span className="progress-ring__pct tnum">{pct}%</span>
+        <span className="progress-ring__pct">기록</span>
       </div>
     </div>
   )

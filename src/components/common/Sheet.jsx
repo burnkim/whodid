@@ -2,6 +2,7 @@
 // focus trap, and focus restore.
 
 import { useEffect, useId, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { Icon } from './Icon.jsx'
 
 const FOCUSABLE =
@@ -52,7 +53,10 @@ export function Sheet({ title, onClose, children }) {
     }
   }, [onClose])
 
-  return (
+  // Portal to <body> so the sheet escapes the `.screen` subtree — otherwise it
+  // shares a stacking level with the fixed bottom tab bar (a later sibling),
+  // which then paints over the sheet's action buttons.
+  return createPortal(
     <div className="sheet-backdrop" onClick={onClose} role="presentation">
       <div
         className="sheet"
@@ -74,6 +78,7 @@ export function Sheet({ title, onClose, children }) {
         </div>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }

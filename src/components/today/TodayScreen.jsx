@@ -16,7 +16,6 @@ import { ProgressRing } from '../common/ProgressRing.jsx'
 import { ConfettiBurst } from '../common/ConfettiBurst.jsx'
 import { DateHeader } from './DateHeader.jsx'
 import { EncouragementLine } from './EncouragementLine.jsx'
-import { StreakBadge } from './StreakBadge.jsx'
 import { MemberSwitcher } from './MemberSwitcher.jsx'
 import { ChoreList } from './ChoreList.jsx'
 import { NotDueSection } from './NotDueSection.jsx'
@@ -24,7 +23,7 @@ import { QuickAddBar } from './QuickAddBar.jsx'
 
 export function TodayScreen({ onOpenSettings, onGoManage }) {
   const { state, actions } = useStore()
-  const { settings, logs, chores, streak, members } = state
+  const { settings, logs, chores, members } = state
   const showMembers = attributionEnabled(members)
 
   const [todayK, setTodayK] = useState(todayKey())
@@ -84,8 +83,7 @@ export function TodayScreen({ onOpenSettings, onGoManage }) {
       <div className="today-hero">
         <ProgressRing done={done} total={total} />
         <EncouragementLine total={total} done={done} hasChores={active.length > 0} />
-        <StreakBadge current={streak.current} />
-        {complete && <div className="done-banner">🎉 오늘 할 일을 모두 끝냈어요!</div>}
+        {complete && <div className="done-banner">🎉 오늘 할 집안일을 모두 기록했어요!</div>}
       </div>
 
       {active.length === 0 ? (

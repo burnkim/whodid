@@ -14,7 +14,7 @@ export function PeriodSummary({ week, month }) {
   return (
     <div className="stats-grid">
       <div className="stat-card">
-        <div className="stat-card__label">이번 주 완료</div>
+        <div className="stat-card__label">이번 주 기록</div>
         <div className="stat-card__value tnum">
           {week.thisWeek}
           <small>개</small>
@@ -22,7 +22,7 @@ export function PeriodSummary({ week, month }) {
         <Delta delta={week.delta} unit="지난주보다" />
       </div>
       <div className="stat-card">
-        <div className="stat-card__label">이번 달 완료</div>
+        <div className="stat-card__label">이번 달 기록</div>
         <div className="stat-card__value tnum">
           {month.thisMonth}
           <small>개</small>

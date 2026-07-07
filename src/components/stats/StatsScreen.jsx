@@ -10,7 +10,6 @@ import {
   weeklyTrend,
   weekdayBars,
 } from '../../store/selectors.js'
-import { StreakCards } from './StreakCards.jsx'
 import { PeriodSummary } from './PeriodSummary.jsx'
 import { MonthlyRecap } from './MonthlyRecap.jsx'
 import { WeeklySplit } from './WeeklySplit.jsx'
@@ -20,7 +19,7 @@ import { WeekdayBars } from './WeekdayBars.jsx'
 
 export function StatsScreen() {
   const { state } = useStore()
-  const { logs, chores, streak, members } = state
+  const { logs, chores, members } = state
 
   const hasAny = Object.keys(logs).length > 0
   const week = weekSummary(logs)
@@ -37,7 +36,6 @@ export function StatsScreen() {
     <div className="screen">
       <h1 className="screen__title">통계</h1>
 
-      <StreakCards current={streak.current} longest={streak.longest} />
       <PeriodSummary week={week} month={month} />
 
       {!hasAny ? (

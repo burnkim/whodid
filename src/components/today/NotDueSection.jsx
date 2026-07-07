@@ -15,7 +15,7 @@ export function NotDueSection({ chores, logs, dateKey, sortMode, onTap, onAddMor
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
       >
-        <span>오늘은 안 해도 돼요 ({chores.length})</span>
+        <span>다른 집안일도 기록하기 ({chores.length})</span>
         <Icon name={open ? 'chevron-down' : 'chevron-right'} size={18} />
       </button>
       {open && (

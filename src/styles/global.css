@@ -307,25 +307,6 @@ ol {
   min-height: 22px;
 }
 
-/* streak badge */
-.streak-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  margin-top: var(--sp-3);
-  padding: 5px 12px;
-  border-radius: var(--r-pill);
-  background: var(--surface-2);
-  font-size: 13px;
-  font-weight: 600;
-}
-.streak-badge__flame {
-  font-size: 14px;
-}
-.streak-badge--broken {
-  color: var(--text-secondary);
-}
-
 /* done banner */
 .done-banner {
   display: flex;
@@ -730,7 +711,7 @@ ol {
   background: var(--surface);
   border-radius: 20px 20px 0 0;
   box-shadow: var(--shadow-sheet);
-  padding: var(--sp-2) var(--sp-4) calc(env(safe-area-inset-bottom) + var(--sp-5));
+  padding: var(--sp-2) var(--sp-4) calc(env(safe-area-inset-bottom) + var(--sp-6));
   animation: sheet-up 0.22s var(--ease-spring) both;
 }
 @keyframes sheet-up {
@@ -880,10 +861,6 @@ ol {
 .stat-card__delta--down {
   color: var(--danger);
 }
-.stat-card__flame {
-  color: var(--flame);
-}
-
 .top-chores {
   display: flex;
   flex-direction: column;
@@ -1097,7 +1074,10 @@ ol {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 4px;
-  max-height: 200px;
+  /* padding so the active ring + :active scale of edge items aren't clipped
+     by this scroll container (the top row's ring was getting cut off). */
+  padding: 3px;
+  max-height: 190px;
   overflow-y: auto;
 }
 .emoji-picker__item {
@@ -1114,7 +1094,8 @@ ol {
 }
 .emoji-picker__item--active {
   background: var(--accent-soft);
-  outline: 2px solid var(--accent);
+  /* inset ring stays inside the item, so the scroll container never clips it */
+  box-shadow: inset 0 0 0 2px var(--accent);
 }
 
 /* ---------------------------------------------------------------- field / sheet form */
