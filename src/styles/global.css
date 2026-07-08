@@ -330,17 +330,18 @@ ol {
 
 /* ---------------------------------------------------------------- chore list / rows */
 .chore-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-3);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2);
   margin-top: var(--sp-5);
 }
 .chore-row {
   display: flex;
   align-items: center;
-  gap: var(--sp-3);
-  min-height: 64px;
-  padding: 0 var(--sp-4);
+  gap: var(--sp-2);
+  min-width: 0; /* let the name truncate inside the grid cell */
+  min-height: 60px;
+  padding: 0 var(--sp-3);
   border-radius: var(--r-card);
   background: var(--surface);
   border: 1px solid var(--hairline);
@@ -358,8 +359,8 @@ ol {
   border-color: transparent;
 }
 .chore-row__check {
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   flex: none;
   border-radius: var(--r-pill);
   border: 2px solid var(--ring-track);
@@ -375,17 +376,18 @@ ol {
   color: var(--accent-contrast);
 }
 .chore-row__check .icon {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   stroke-width: 3;
 }
 .chore-row__emoji {
-  font-size: 22px;
+  font-size: 20px;
   flex: none;
 }
 .chore-row__name {
   flex: 1;
-  font-size: 17px;
+  min-width: 0;
+  font-size: 15px;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1109,12 +1111,13 @@ ol {
 }
 .emoji-picker__grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  /* 7 columns keeps each cell >=44px (touch-target min) on phone widths */
+  grid-template-columns: repeat(7, 1fr);
   gap: 4px;
   /* padding so the active ring + :active scale of edge items aren't clipped
      by this scroll container (the top row's ring was getting cut off). */
   padding: 3px;
-  max-height: 190px;
+  max-height: 210px;
   overflow-y: auto;
 }
 .emoji-picker__item {

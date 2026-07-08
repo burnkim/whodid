@@ -4,7 +4,7 @@ import { ChoreList } from './ChoreList.jsx'
 
 // Chores not scheduled for today, tucked into a collapsed section but still
 // tappable — routines shape the default view without hiding anything.
-export function NotDueSection({ chores, logs, dateKey, sortMode, onTap, onAddMore }) {
+export function NotDueSection({ chores, logs, dateKey, sortMode, onTap }) {
   const [open, setOpen] = useState(false)
   if (chores.length === 0) return null
 
@@ -25,7 +25,6 @@ export function NotDueSection({ chores, logs, dateKey, sortMode, onTap, onAddMor
           dateKey={dateKey}
           sortMode={sortMode}
           onTap={onTap}
-          onAddMore={onAddMore}
         />
       )}
     </div>

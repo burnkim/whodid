@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { countFor } from '../../store/selectors.js'
 import { ChoreRow } from './ChoreRow.jsx'
 
-export function ChoreList({ chores, logs, dateKey, sortMode, onTap, onAddMore }) {
+export function ChoreList({ chores, logs, dateKey, sortMode, onTap }) {
   const idsKey = `${dateKey}|${chores.map((c) => c.id).join(',')}`
 
   // Freeze the row order. undone-first grouping is snapshotted here and only
@@ -35,7 +35,6 @@ export function ChoreList({ chores, logs, dateKey, sortMode, onTap, onAddMore })
           chore={chore}
           count={countFor(logs, dateKey, chore.id)}
           onTap={() => onTap(chore.id)}
-          onAddMore={() => onAddMore(chore.id)}
         />
       ))}
     </div>

@@ -68,14 +68,6 @@ export function TodayScreen({ onOpenSettings, onGoManage }) {
     [actions, todayK, logs, done, total, settings.hapticEnabled, settings.lastConfettiDate],
   )
 
-  const onAddMore = useCallback(
-    (id) => {
-      haptic(settings.hapticEnabled)
-      actions.addEntry(id, todayK)
-    },
-    [actions, todayK, settings.hapticEnabled],
-  )
-
   return (
     <div className="screen">
       <DateHeader dateKey={todayK} onOpenSettings={onOpenSettings} />
@@ -113,7 +105,6 @@ export function TodayScreen({ onOpenSettings, onGoManage }) {
               dateKey={todayK}
               sortMode={settings.sortMode}
               onTap={onTap}
-              onAddMore={onAddMore}
             />
           ) : (
             <div className="today-rest">🌿 오늘 예정된 집안일이 없어요</div>
@@ -124,7 +115,6 @@ export function TodayScreen({ onOpenSettings, onGoManage }) {
             dateKey={todayK}
             sortMode={settings.sortMode}
             onTap={onTap}
-            onAddMore={onAddMore}
           />
         </>
       )}
