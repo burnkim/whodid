@@ -404,8 +404,10 @@ ol {
   flex: none;
 }
 .chore-row__plus {
-  width: 34px;
-  height: 34px;
+  /* 44x44 hit area (WCAG/HIG touch-target min); glyph stays small and centered */
+  width: 44px;
+  height: 44px;
+  margin-right: -6px;
   flex: none;
   border-radius: var(--r-pill);
   display: flex;
@@ -1427,7 +1429,7 @@ ol {
 }
 .day-chip {
   flex: 1;
-  height: 40px;
+  height: 44px;
   border-radius: var(--r-btn);
   background: var(--surface-2);
   border: 1.5px solid transparent;
