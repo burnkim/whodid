@@ -817,6 +817,41 @@ ol {
   color: var(--text-secondary);
   margin-bottom: var(--sp-2);
 }
+.day-detail__section-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-2);
+}
+.day-detail__count {
+  font-weight: 600;
+  color: var(--text-tertiary);
+}
+.day-detail__empty {
+  color: var(--text-tertiary);
+  font-size: 14px;
+  text-align: center;
+  padding: var(--sp-4) 0;
+}
+.day-rest {
+  margin-top: var(--sp-4);
+}
+.day-rest__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--sp-2) 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.day-rest__list {
+  margin-top: var(--sp-2);
+}
 
 /* ---------------------------------------------------------------- stats */
 .stats-grid {
